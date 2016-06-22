@@ -1,0 +1,40 @@
+/* variables */
+
+$black: #000;
+$white: #FFF;
+$red: #c00;
+$green: #0c0;
+
+/* mixins */
+
+@define-mixin basetype $size:16px, $color:#333 {
+  font-family: sans-serif;
+  font-size: $(size);
+  color: $(color);
+}
+
+body {
+  color: $black;
+}
+
+/*
+# selector naming rules
+[namespace]-[components/modules]_[child node]([-variant]) 
+*/
+
+.md-Icons_Header {
+  width: 100%;
+  background-color: $white;
+  @mixin basetype 14px;
+  .md-Sidebar & {
+    width: 50%;
+    background-color: $red;
+  }
+}
+
+.md-Icons_Nav {
+  background-color: $white;
+  &.md-Icons_Nav-Hover {
+    background-color: $green;
+  }
+}
